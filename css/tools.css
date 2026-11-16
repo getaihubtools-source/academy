@@ -1,0 +1,56 @@
+/* AIhub Academy — نشان، یادداشت، جست‌وجو، ذخیره‌ها */
+.btn--sm .ico { width: 18px; height: 18px; }
+.bm-lesson[aria-pressed="true"], .bm-block[aria-pressed="true"] { color: var(--accent-ink); border-color: var(--accent); background: var(--accent-soft); }
+.bm-lesson[aria-pressed="true"] .ico, .bm-block[aria-pressed="true"] .ico { fill: currentColor; }
+
+.blk-wrap { display: flow-root; }
+.bm-block { display: flex; margin-inline-start: auto; align-items: center; justify-content: center; width: 40px; height: 36px; padding: 0; border-radius: var(--r-md); border: 1px solid transparent; background: transparent; color: var(--text-faint); transition: color var(--dur-fast), border-color var(--dur-fast); }
+.bm-block .ico { width: 18px; height: 18px; }
+.bm-block:hover { color: var(--text); border-color: var(--border-strong); }
+.is-target { outline: 3px solid var(--primary); outline-offset: 4px; border-radius: var(--r-md); transition: outline-color .3s; }
+@media (min-width: 900px) {
+  .blk-wrap { position: relative; display: block; }
+  .bm-block { position: absolute; inset-inline-end: 100%; margin-inline-end: var(--sp-2); inset-block-start: var(--sp-2); }
+}
+
+/* یادداشت‌ها */
+.notes { padding-block-start: var(--sp-6); border-block-start: 1px solid var(--border); display: grid; gap: var(--sp-3); }
+.notes h2 { display: flex; align-items: center; gap: var(--sp-2); margin: 0; font-size: var(--fs-md); }
+.notes__icon { display: grid; color: var(--primary-ink); }
+.notes__form { display: grid; gap: var(--sp-2); padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.notes__form .btn { justify-self: start; }
+.notes__counter { font-size: var(--fs-xs); color: var(--text-faint); }
+.notes__list, .saved__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.note, .saved__item { padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.note__text { margin: 0 0 var(--sp-3); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--text); }
+.note__foot { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; justify-content: space-between; }
+.note__meta, .saved__where { font-size: var(--fs-xs); color: var(--text-faint); }
+.note__actions { display: inline-flex; gap: var(--sp-2); flex-wrap: wrap; }
+.notes__empty { list-style: none; padding: var(--sp-6) var(--sp-4); text-align: center; color: var(--text-muted); border: 1px dashed var(--border-strong); border-radius: var(--r-lg); }
+
+/* جست‌وجو */
+.pg--search { max-width: 880px; width: 100%; margin-inline: auto; }
+.search--lg { max-width: none; flex: none; }
+.search--lg .input { min-height: 52px; font-size: var(--fs-md); border-radius: var(--r-lg); padding-inline-start: 48px; }
+.search--lg > .ico { width: 22px; height: 22px; inset-inline-start: var(--sp-4); }
+.search__form { display: grid; gap: var(--sp-3); }
+.search__course { max-width: 320px; }
+.search__status { margin: 0; color: var(--text-muted); font-size: var(--fs-sm); min-height: 1.5em; }
+.search__results { display: grid; gap: var(--sp-3); }
+.result { padding: var(--sp-4) var(--sp-5); }
+.result__title { margin: 0; font-size: var(--fs-md); }
+.result__crumb { margin: 2px 0 var(--sp-2); font-size: var(--fs-xs); color: var(--text-faint); }
+.result__hit { display: block; padding: var(--sp-2) 0; color: var(--text); text-decoration: none; border-block-start: 1px dashed var(--border-strong); }
+.result__hit:hover .result__snippet { text-decoration: underline; text-underline-offset: 4px; }
+.result__snippet { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); overflow-wrap: anywhere; }
+mark { background: var(--accent-soft); color: var(--accent-ink); border-radius: 3px; padding: 0 2px; font-weight: var(--fw-semibold); }
+
+/* ذخیره‌ها */
+.pg > .tabs { margin-block-end: calc(-1 * var(--sp-2)); }
+.tabs [role="tab"] .badge { margin-inline-start: var(--sp-2); }
+.saved__ico { display: inline-grid; vertical-align: middle; margin-inline-end: var(--sp-2); color: var(--accent-ink); }
+.saved__ico .ico { width: 18px; height: 18px; fill: currentColor; }
+.saved__where { margin: 2px 0 var(--sp-3); }
+.saved__link { color: var(--text); text-decoration: none; }
+.saved__link:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+[role="tabpanel"]:focus { outline: none; }

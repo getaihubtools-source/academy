@@ -1,0 +1,17 @@
+{
+  "name": "aihub-academy",
+  "version": "0.7.0-m7",
+  "private": true,
+  "type": "module",
+  "description": "AIhub Academy — shared learning platform (Vanilla JS, no runtime dependencies). فقط تست‌ها devDependency دارند.",
+  "scripts": {
+    "test": "node tests/node-run.mjs",
+    "serve": "npx --yes serve -l 5173 .",
+    "build:sw": "node tools/build-sw.mjs",
+    "build": "node tools/build-sw.mjs"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "^6.0.0",
+    "jsdom": "^26.0.0"
+  }
+}

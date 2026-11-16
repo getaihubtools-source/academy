@@ -1,0 +1,30 @@
+/* AIhub Academy — پشتیبان‌گیری، PWA و نوار به‌روزرسانی */
+.bk { display: grid; gap: var(--sp-4); align-content: start; }
+.bk__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+.bk__actions input[type="file"] { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; overflow: hidden; }
+.bk__actions label.btn { position: relative; cursor: pointer; }
+.bk__actions label.btn:focus-within { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.bk__last, .bk__hint, .bk__status { margin: 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.bk > p { margin: 0; }
+.bk__preview { display: grid; gap: var(--sp-3); padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-sunk); }
+.bk__preview h3 { margin: 0; }
+.bk__radio { display: flex; gap: var(--sp-3); align-items: flex-start; padding: var(--sp-2) 0; cursor: pointer; }
+.bk__radio input { margin-block-start: 6px; accent-color: var(--primary); }
+.bk__confirm { display: grid; gap: var(--sp-3); }
+.pwa { align-content: start; }
+.pwa__act { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+
+.update-bar { position: fixed; inset-inline: var(--gutter); inset-block-end: calc(var(--bottomnav-h) + var(--sp-4) + env(safe-area-inset-bottom, 0px)); z-index: var(--z-toast);
+  display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; justify-content: space-between; padding: var(--sp-3) var(--sp-4);
+  border: 1px solid var(--primary); border-radius: var(--r-lg); background: var(--surface); color: var(--text); box-shadow: var(--shadow-3); animation: toast-in var(--dur-slow) var(--ease-spring); }
+.update-bar__text { display: inline-flex; align-items: center; gap: var(--sp-2); font-weight: var(--fw-semibold); }
+.update-bar__text .ico { width: 20px; height: 20px; color: var(--primary-ink); }
+.update-bar__actions { display: flex; gap: var(--sp-2); }
+@media (min-width: 640px) { .update-bar { inset-inline: auto var(--sp-6); inset-block-end: var(--sp-6); max-inline-size: 440px; } }
+
+/* عناصر hidden باید واقعاً مخفی شوند */
+.bk [hidden], .pwa [hidden], .update-bar[hidden] { display: none !important; }
+/* ردیف‌های PWA متن بلند دارند؛ کلید بالا، مقدار زیر آن */
+.pwa .kv__row { flex-direction: column; align-items: flex-start; gap: var(--sp-2); }
+.pwa .kv__val, .pwa__act { text-align: start; justify-content: flex-start; }
+.pwa .bk__actions { margin-block-start: var(--sp-4); }

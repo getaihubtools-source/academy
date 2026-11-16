@@ -1,0 +1,55 @@
+/* AIhub Academy — صفحه‌ها: داشبورد، کتابخانه */
+
+/* ---------- هیرو (لحظه جسورانه‌ی هر صفحه: card--brand + pattern-girih) ---------- */
+.hero { display: grid; gap: var(--sp-3); justify-items: start; padding: var(--sp-6); }
+.hero__eyebrow { display: inline-flex; align-items: center; gap: var(--sp-2); margin: 0; color: var(--white); opacity: .9; font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+.hero__eyebrow .ico { width: 18px; height: 18px; }
+.hero__title { margin: 0; font-size: var(--fs-lg); font-weight: var(--fw-black); line-height: 1.5; }
+@media (min-width: 768px) { .hero { padding: var(--sp-8); } .hero__title { font-size: var(--fs-xl); } }
+.hero__sub { margin: 0; max-width: 56ch; }
+.hero__prog { width: 100%; max-width: 460px; }
+
+/* ---------- KPI ---------- */
+.card.kpi { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-4); }
+.kpi__ico { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border-radius: var(--r-md); background: var(--primary-soft); color: var(--primary-ink); }
+.kpi .stat__value { font-size: var(--fs-xl); }
+.kpi .stat { min-width: 0; }
+
+/* ---------- کارت‌های دوره ---------- */
+.course-grid { display: grid; gap: var(--sp-4); grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 560px) { .course-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } }
+
+/* ---------- وضعیت درس‌ها (donut) ---------- */
+.status-donut .donut { justify-content: center; gap: var(--sp-4); }
+.status-donut .donut .seg.s3 { stroke: var(--border-strong); }
+.status-donut .donut__legend i.s3 { background: var(--border-strong); }
+.status-donut .donut__legend { flex-basis: 140px; }
+
+/* ---------- لیست میان‌بُر ---------- */
+.list--flush { border: 0; border-radius: 0; background: transparent; margin-inline: calc(-1 * var(--sp-2)); }
+.list--flush .list__row { text-decoration: none; color: var(--text); border-radius: var(--r-md); }
+.list--flush .list__row + .list__row { border-block-start: 0; }
+.list__row > .rtl-flip { color: var(--text-faint); }
+.list__row .ico { width: 20px; height: 20px; }
+
+/* ---------- افزودن دوره (dropzone) ---------- */
+.dropzone { display: grid; gap: var(--sp-3); justify-items: center; text-align: center; padding: var(--sp-6) var(--sp-5); border: 2px dashed var(--border-strong); background: var(--surface); box-shadow: none; transition: border-color var(--dur-base), background var(--dur-base); }
+.dropzone.is-over { border-color: var(--primary); background: var(--primary-soft); }
+.dropzone__art { width: 56px; height: 56px; display: grid; place-items: center; border-radius: var(--r-lg); background: var(--primary-soft); color: var(--primary-ink); }
+.dropzone__text p { margin: var(--sp-1) 0 0; max-width: 52ch; }
+.dropzone .btn { position: relative; cursor: pointer; }
+.dropzone .btn input[type="file"] { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; overflow: hidden; }
+.dropzone .btn:focus-within { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.import-status { display: grid; gap: var(--sp-2); width: 100%; text-align: start; }
+.import-status:empty { display: none; }
+@media (min-width: 768px) {
+  .dropzone { grid-template-columns: auto 1fr auto; justify-items: start; text-align: start; align-items: center; padding: var(--sp-5) var(--sp-6); }
+  .dropzone .import-status { grid-column: 1 / -1; }
+}
+.issue-list { display: grid; gap: var(--sp-2); margin-block-start: var(--sp-2); }
+.issue { padding: var(--sp-2) var(--sp-3); border-radius: var(--r-sm); background: var(--surface); }
+.issue__path { display: block; direction: ltr; text-align: start; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-faint); overflow-wrap: anywhere; }
+
+.hero__ai { font-family: var(--font-mono); color: var(--accent-300); }
+.course-grid--lib { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 560px) { .course-grid--lib { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }

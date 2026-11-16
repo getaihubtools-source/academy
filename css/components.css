@@ -1,0 +1,43 @@
+/* AIhub Academy — اجزای مشترک روی DS (kv، انتخاب‌گر، چیپ، متا، خطای فرم) */
+
+.save-error { margin: 0; color: var(--danger-500); font-size: var(--fs-sm); font-weight: var(--fw-medium); }
+.alert > .ico { margin-top: 2px; }
+.alert h3 { margin: 0 0 var(--sp-1); font-size: var(--fs-base); }
+.alert p { margin: 0; }
+.alert--danger { color: var(--text); }
+.alert--danger > .ico { color: var(--danger-500); }
+.alert--warning > .ico { color: var(--warning-500); }
+.alert:not(.alert--danger):not(.alert--warning):not(.alert--success) > .ico { color: var(--info-500); }
+
+.empty .empty__art .ico { width: 40px; height: 40px; }
+.empty h1.empty__title { font-size: var(--fs-lg); }
+
+.chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.field__label { font-weight: var(--fw-semibold); }
+
+/* گروه انتخاب (radio) به‌شکل segmented */
+.choice-group { border: 0; padding: 0; margin-inline: 0; min-width: 0; display: grid; gap: var(--sp-2); }
+.choice-group legend { padding: 0; margin-block-end: var(--sp-2); font-size: var(--fs-sm); }
+.choices { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; padding: 4px; background: var(--surface-sunk); border: 1px solid var(--border); border-radius: var(--r-md); width: 100%; max-width: 420px; }
+.choice { position: relative; display: grid; }
+.choice input { position: absolute; inset: 0; opacity: 0; cursor: pointer; margin: 0; }
+.choice span { white-space: nowrap; display: grid; place-items: center; min-height: 38px; padding: 0 var(--sp-2); border-radius: calc(var(--r-md) - 4px); color: var(--text-muted); font-weight: var(--fw-semibold); font-size: var(--fs-sm); text-align: center; transition: background var(--dur-base) var(--ease-out), color var(--dur-base); }
+.choice input:checked + span { background: var(--surface); color: var(--text); box-shadow: var(--shadow-2); }
+.choice input:focus-visible + span { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+.choice:hover input:not(:checked) + span { color: var(--text); }
+.segmented--wrap { display: grid; grid-auto-flow: column; width: 100%; max-width: 480px; }
+.segmented--wrap button { min-height: 40px; padding-inline: var(--sp-2); white-space: nowrap; }
+
+/* جدول کلید-مقدار */
+.kv { display: grid; }
+.kv__row { display: flex; justify-content: space-between; align-items: center; gap: var(--sp-4); padding: var(--sp-3) 0; border-block-end: 1px solid var(--border); }
+.kv__row:last-child { border-block-end: 0; }
+.kv__key { color: var(--text-muted); }
+.kv__val { font-weight: var(--fw-semibold); }
+.kv__sub { margin: var(--sp-5) 0 var(--sp-1); font-size: var(--fs-base); }
+
+/* متادیتا */
+.meta-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4); margin: 0; color: var(--text-muted); font-size: var(--fs-sm); }
+.meta-chip { display: inline-flex; align-items: center; gap: var(--sp-1); line-height: 1.5; }
+.meta-chip .ico { width: 16px; height: 16px; }
+.meta-chip--plain { color: var(--text-faint); }

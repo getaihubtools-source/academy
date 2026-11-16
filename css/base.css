@@ -1,0 +1,44 @@
+/* AIhub Academy — پایه: آیکن، بوت، قالب صفحه، برند، نوار بالا */
+
+.ico { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.sprite { position: absolute; }
+
+/* صفحه بارگذاری اولیه */
+.boot { display: grid; place-items: center; align-content: center; gap: var(--sp-4); min-height: 100vh; min-height: 100dvh; padding: var(--sp-5); text-align: center; color: var(--text-muted); }
+.boot__dot { width: 14px; height: 14px; border-radius: 50%; background: var(--primary); animation: boot-pulse 1s var(--ease-out) infinite alternate; }
+@keyframes boot-pulse { from { transform: scale(.7); opacity: .5; } to { transform: scale(1.1); opacity: 1; } }
+
+/* ---------- قالب صفحه ---------- */
+.pg { display: grid; gap: var(--sp-6); align-content: start; min-width: 0; animation: pg-in var(--dur-base) var(--ease-out) both; }
+@keyframes pg-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.pg > * { min-width: 0; }
+.page:focus { outline: none; }
+.pg > .page-head { margin-block-end: 0; }
+.page-head h1 { font-size: var(--fs-xl); }
+@media (min-width: 1024px) { .page-head h1 { font-size: var(--fs-2xl); } }
+.section__title { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin-block-end: var(--sp-3); }
+.section__title h2 { margin: 0; }
+.section__title a { font-size: var(--fs-sm); font-weight: var(--fw-semibold); }
+.stack h2 { font-size: var(--fs-md); }
+
+/* ---------- برند ---------- */
+.brand:hover { text-decoration: none; }
+.brand__ai { font-family: var(--font-mono); color: var(--primary-ink); }
+.brand__tag { display: block; font-size: var(--fs-xs); font-weight: var(--fw-regular); color: var(--text-faint); line-height: 1.4; }
+.brand__mark .ico { width: 20px; height: 20px; }
+
+/* ---------- نوار بالا ---------- */
+.menu-btn { display: inline-flex; }
+@media (min-width: 640px) { .menu-btn { display: none; } }
+.topbar .crumbs--top li:last-child { font-weight: var(--fw-semibold); color: var(--text); }
+.theme-toggle .ico { width: 22px; height: 22px; }
+.theme-toggle .ico + .ico { display: none; }
+.theme-toggle[aria-pressed="true"] .ico:first-child { display: none; }
+.theme-toggle[aria-pressed="true"] .ico + .ico { display: block; }
+.nav__item .ico, .bottomnav .ico { stroke-width: 1.9; }
+.sidebar__toggle { justify-content: flex-start; width: 100%; }
+.sidebar__toggle .ico { width: 20px; height: 20px; }
+.skip { border: 0; cursor: pointer; }
+
+/* لینک‌های داخل متن: فونت فارسی */
+.rtl-flip { display: inline-grid; place-items: center; }

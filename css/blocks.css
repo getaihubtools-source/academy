@@ -1,0 +1,92 @@
+/* AIhub Academy — بلوک‌های محتوای درس
+   اصل: متن آزاد می‌ماند؛ فقط بلوک‌های «ابزاری» (پرامپت، ابزار، آزمون) پنل می‌گیرند. */
+.blk { margin: 0; }
+.lesson-body { display: grid; gap: var(--sp-5); }
+.lesson-body > * { min-width: 0; }
+
+.blk-heading { margin-block-start: var(--sp-4); scroll-margin-block-start: calc(var(--topbar-h) + var(--sp-4)); }
+h2.blk-heading { font-size: var(--fs-lg); line-height: 1.5; font-weight: var(--fw-black); }
+h3.blk-heading { font-size: var(--fs-md); color: var(--text-muted); }
+
+.blk-text { display: grid; gap: var(--sp-3); }
+.blk-text p, .blk-callout p, .blk-steps p, .blk-tool p { margin: 0; color: var(--text); }
+.blk-text strong, .blk-callout strong { font-weight: var(--fw-bold); }
+.blk code { padding: 1px 6px; border-radius: var(--r-xs); background: var(--surface-2); font-family: var(--font-mono); font-size: .88em; color: var(--primary-ink); direction: ltr; unicode-bidi: isolate; }
+.blk a { color: var(--primary-ink); text-underline-offset: 4px; }
+
+.blk-list ul, .blk-list ol { padding-inline-start: var(--sp-5); display: grid; gap: var(--sp-2); margin: 0; }
+.blk-list ul { list-style: disc; }
+.blk-list ol { list-style: decimal; }
+.blk-list li::marker { color: var(--primary); }
+.blk-list li > ul, .blk-list li > ol { margin-block-start: var(--sp-2); }
+
+.blk-image { display: grid; gap: var(--sp-2); }
+.blk-image img { width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--border); background: var(--surface); }
+.blk-image figcaption { color: var(--text-muted); font-size: var(--fs-sm); }
+.blk-image__missing { display: grid; place-items: center; min-height: 140px; border: 1px dashed var(--border-strong); border-radius: var(--r-lg); color: var(--text-faint); }
+
+/* پرامپت: محتوایی که کپی می‌شود؛ سطح فرورفته + نوار عنوان */
+.blk-prompt { border: 1px solid var(--border-strong); border-radius: var(--r-lg); background: var(--surface-sunk); overflow: hidden; }
+.blk-prompt__head { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3) var(--sp-2) var(--sp-4); border-block-end: 1px solid var(--border); background: var(--surface); }
+.blk-prompt__head strong { flex: 1; min-width: 0; font-weight: var(--fw-bold); font-size: var(--fs-base); }
+.blk-prompt__text { margin: 0; padding: var(--sp-4); white-space: pre-wrap; overflow-wrap: anywhere; font-family: var(--font-sans); font-size: var(--fs-base); line-height: 1.95; color: var(--text); text-align: start; }
+.blk-prompt__text[lang="en"] { font-family: var(--font-mono); font-size: .9rem; line-height: 1.75; }
+.blk-prompt__note { margin: 0; padding: var(--sp-3) var(--sp-4); border-block-start: 1px solid var(--border); color: var(--text-muted); font-size: var(--fs-sm); }
+.blk-prompt__copy { margin-inline-start: auto; }
+
+/* مراحل: دنباله با خط زمان و کلیدفریم شماره‌دار */
+.blk-steps__title { margin-block-end: var(--sp-3); }
+.blk-steps__list { position: relative; display: grid; margin: 0; padding: 0; list-style: none; }
+.blk-steps__item { position: relative; display: grid; grid-template-columns: auto 1fr; gap: var(--sp-4); align-items: start; padding-block: var(--sp-3); }
+.blk-steps__item::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 16px; width: 2px; background: var(--border); }
+.blk-steps__item:first-child::before { inset-block-start: 24px; }
+.blk-steps__item:last-child::before { inset-block-end: calc(100% - 24px); }
+.blk-steps__item:only-child::before { display: none; }
+.blk-steps__num { position: relative; z-index: 0; display: grid; place-items: center; width: 34px; height: 34px; background: var(--primary); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); color: var(--on-primary); font-size: var(--fs-xs); font-weight: var(--fw-black); }
+.blk-steps__item > div > strong { display: block; font-weight: var(--fw-bold); }
+
+/* جدول مقایسه */
+.blk-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); }
+.blk-table { width: 100%; border-collapse: collapse; min-width: 420px; font-size: var(--fs-sm); }
+.blk-table caption { padding: var(--sp-3) var(--sp-4); text-align: start; font-weight: var(--fw-bold); }
+.blk-table th, .blk-table td { padding: var(--sp-3) var(--sp-4); text-align: start; vertical-align: top; border-block-end: 1px solid var(--border); }
+.blk-table thead th { background: var(--surface-sunk); font-weight: var(--fw-bold); color: var(--text-muted); }
+.blk-table tbody th { font-weight: var(--fw-medium); color: var(--text-muted); white-space: nowrap; }
+.blk-table tr:last-child > * { border-block-end: 0; }
+.blk-table .is-highlight { background: var(--primary-soft); }
+.blk-table thead .is-highlight { color: var(--primary-ink); }
+.blk-table .badge { margin-inline-start: var(--sp-2); }
+
+/* نکته/هشدار: مطابق alert در DS + خط رنگی کنار */
+.blk-callout { display: flex; gap: var(--sp-3); padding: var(--sp-4); border-radius: var(--r-md); border-inline-start: 4px solid var(--info-500); background: var(--info-50); }
+.blk-callout > .ico { flex: none; width: 22px; height: 22px; margin-block-start: 5px; color: var(--info-500); }
+.blk-callout__body { display: grid; gap: var(--sp-1); min-width: 0; }
+.blk-callout--tip { border-inline-start-color: var(--primary); background: var(--primary-soft); }
+.blk-callout--tip > .ico { color: var(--primary-ink); }
+.blk-callout--warning { border-inline-start-color: var(--warning-500); background: var(--warning-50); }
+.blk-callout--warning > .ico { color: var(--warning-500); }
+
+/* ویدئو (پیوند خارجی) */
+.blk-video { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-1); color: var(--text); text-decoration: none !important; transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base); }
+.blk-video:hover { transform: translateY(-2px); box-shadow: var(--shadow-2); }
+.blk-video__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--r-md); background: var(--primary-soft); color: var(--primary-ink); }
+.blk-video__body { display: grid; flex: 1; min-width: 0; }
+.blk-video__body small { color: var(--text-faint); }
+.blk-video > .ico:last-child { width: 18px; height: 18px; color: var(--text-faint); }
+
+/* ابزار */
+.blk-tool { display: grid; gap: var(--sp-3); padding: var(--sp-5); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.blk-tool__head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; }
+.blk-tool__grid { display: grid; gap: var(--sp-3); grid-template-columns: minmax(0, 1fr); }
+.blk-tool__points { padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md); background: var(--surface-sunk); }
+.blk-tool__points h4 { margin: 0 0 var(--sp-2); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.blk-tool__points.is-pros { background: var(--success-50); }
+.blk-tool__points.is-pros h4 { color: var(--success-500); }
+.blk-tool__points.is-cons { background: var(--warning-50); }
+.blk-tool__points.is-cons h4 { color: var(--warning-500); }
+.blk-tool__points ul { margin: 0; padding-inline-start: var(--sp-4); list-style: disc; display: grid; gap: var(--sp-1); color: var(--text); }
+.blk-tool__link { display: inline-flex; align-items: center; gap: var(--sp-2); justify-self: start; }
+.blk-tool__link .ico { width: 16px; height: 16px; }
+@media (min-width: 600px) { .blk-tool__grid { grid-template-columns: 1fr 1fr; } }
+
+.blk-unsupported { padding: var(--sp-3) var(--sp-4); border: 1px dashed var(--border-strong); border-radius: var(--r-md); color: var(--text-faint); font-size: var(--fs-sm); }

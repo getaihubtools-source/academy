@@ -1,0 +1,128 @@
+/* AIhub Academy — پیشرفت، کارت دوره، صفحه دوره، صفحه درس */
+
+/* ---------- پیشرفت (تایم‌لاین کلیدفریم؛ عنصر شاخص آکادمی) ----------
+   هر درس یک کلیدفریم: توخالی = شروع‌نشده، زعفرانی = در حال مطالعه، فیروزه‌ای پر = انجام‌شده.
+   اگر درس‌ها بیش از ۲۴ تا باشند، به نوار ساده برمی‌گردد. */
+.prog { display: grid; gap: var(--sp-2); width: 100%; }
+.prog__track.has-marks { position: relative; height: 18px; overflow: visible; display: flex; align-items: center; background: transparent; }
+.prog__track.has-marks::before { content: ""; position: absolute; inset-inline: 0; inset-block-start: 50%; height: 2px; margin-block-start: -1px; background: var(--border-strong); border-radius: 1px; }
+.prog__track.has-marks > i { display: none; }
+.prog__marks { position: relative; width: 100%; margin: 0; padding: 0; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.mark { position: relative; width: 14px; height: 14px; background: var(--border-strong); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.mark::before { content: ""; position: absolute; inset: 2px; background: var(--surface); clip-path: inherit; }
+.mark--done { background: var(--primary); }
+.mark--done::before { background: var(--primary); }
+.mark--started { background: var(--accent); }
+.mark--started::before { inset: 4px; background: var(--accent); }
+.prog__label { display: flex; justify-content: space-between; gap: var(--sp-3); color: var(--text-muted); font-size: var(--fs-sm); }
+.prog__pct { font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; color: var(--text); }
+
+/* روی کارت برند (پس‌زمینه تیره) */
+.card--brand .prog__label { color: var(--white); opacity: .9; }
+.card--brand .prog__pct { color: var(--white); }
+.card--brand .progress { background: var(--brand-900); }
+.card--brand .progress > i { background: var(--accent-300); }
+.card--brand .prog__track.has-marks { background: transparent; }
+.card--brand .prog__track.has-marks::before { background: var(--brand-500); }
+.card--brand .mark { background: var(--brand-300); }
+.card--brand .mark::before { background: var(--brand-800); }
+.card--brand .mark--done { background: var(--accent-300); }
+.card--brand .mark--done::before { background: var(--accent-300); }
+.card--brand .mark--started { background: var(--white); }
+.card--brand .mark--started::before { background: var(--white); }
+
+/* ---------- کارت دوره ---------- */
+.course-card { position: relative; display: grid; align-content: start; padding: 0; overflow: hidden; }
+.course-card__cover { position: relative; min-height: var(--cover-h); display: flex; align-items: flex-end; justify-content: space-between; padding: var(--sp-4); color: var(--white); }
+.cover--0 { background: linear-gradient(150deg, var(--brand-600), var(--brand-900)); }
+.cover--1 { background: linear-gradient(150deg, var(--ink-700), var(--ink-950)); }
+.cover--2 { background: linear-gradient(150deg, var(--accent-700), var(--ink-900)); }
+.course-card__ico .ico { width: 34px; height: 34px; opacity: .92; }
+.course-card__pct { padding: 2px var(--sp-3); border-radius: var(--r-pill); background: var(--ink-950); background: color-mix(in srgb, var(--ink-950) 45%, transparent); font-size: var(--fs-sm); font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+.course-card__body { display: grid; gap: var(--sp-3); align-content: start; padding: var(--sp-4) var(--sp-5) var(--sp-5); }
+.course-card__status { display: flex; }
+.course-card__title { margin: 0; font-size: var(--fs-md); font-weight: var(--fw-bold); line-height: 1.6; }
+/* کل کارت کلیک‌پذیر؛ لینک فقط روی عنوان است (دسترس‌پذیری) */
+.course-card__title a { color: var(--text); text-decoration: none; }
+.course-card__title a::after { content: ""; position: absolute; inset: 0; border-radius: var(--r-lg); }
+.course-card__title a:focus-visible { outline: none; }
+.course-card__title a:focus-visible::after { outline: 3px solid var(--focus-ring); outline-offset: -3px; }
+.course-card__sub { margin: 0; font-size: var(--fs-sm); color: var(--text-muted); }
+
+/* ---------- صفحه دوره ---------- */
+.course-head { display: grid; gap: var(--sp-4); justify-items: start; padding: var(--sp-6); }
+.course-head h1 { margin: 0; font-size: var(--fs-xl); line-height: 1.5; }
+@media (min-width: 768px) { .course-head { padding: var(--sp-8); } .course-head h1 { font-size: var(--fs-2xl); } }
+.course-head__sub, .course-head__by { margin: 0; color: var(--white); opacity: .9; }
+.course-head__by { font-size: var(--fs-sm); }
+.course-head .meta-row { color: var(--white); opacity: .9; }
+.course-head .meta-chip--plain { color: inherit; }
+.course-head .prog { max-width: 480px; }
+.course-desc { margin: 0; color: var(--text-muted); }
+
+.acc .chapter > summary { gap: var(--sp-3); }
+.chapter__title { margin: 0; flex: 1; min-width: 0; font-size: var(--fs-base); font-weight: var(--fw-bold); line-height: 1.6; }
+.acc .acc__body { padding: 0 var(--sp-2) var(--sp-3); color: var(--text); font-size: var(--fs-base); }
+.lesson-list { position: relative; display: grid; margin: 0; padding: 0; list-style: none; }
+.lesson-list li { position: relative; }
+.lesson-list li::before { content: ""; position: absolute; inset-block: 0; inset-inline-start: 28px; width: 2px; background: var(--border); }
+.lesson-list li:first-child::before { inset-block-start: 50%; }
+.lesson-list li:last-child::before { inset-block-end: 50%; }
+.lesson-list li:only-child::before { display: none; }
+.lesson-link { position: relative; display: flex; align-items: center; gap: var(--sp-3); min-height: 60px; padding-block: var(--sp-2); padding-inline: var(--sp-3) var(--sp-2); border-radius: var(--r-md); color: var(--text); text-decoration: none; transition: background var(--dur-fast); }
+.lesson-link:hover { background: var(--surface-2); text-decoration: none; }
+.lesson-link__num { position: relative; z-index: 0; flex: none; display: grid; place-items: center; width: 34px; height: 34px; background: var(--border-strong); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); color: var(--text-muted); font-size: var(--fs-xs); font-weight: var(--fw-semibold); }
+.lesson-link__num::before { content: ""; position: absolute; inset: 1.5px; z-index: -1; background: var(--surface); clip-path: inherit; }
+.lesson-link:hover .lesson-link__num::before { background: var(--surface-2); }
+.lesson-link.is-done .lesson-link__num { background: var(--primary); color: var(--on-primary); font-weight: var(--fw-black); }
+.lesson-link.is-done .lesson-link__num::before { background: var(--primary); }
+.lesson-link__body { flex: 1; min-width: 0; display: grid; }
+.lesson-link__body strong { font-weight: var(--fw-medium); }
+.lesson-link__meta { color: var(--text-faint); font-size: var(--fs-sm); }
+.lesson-link__status { flex: none; font-size: var(--fs-xs); font-weight: var(--fw-semibold); color: var(--primary-ink); }
+.lesson-link__status.is-started { color: var(--accent-ink); }
+
+.assess-panel h2 { font-size: var(--fs-md); margin-block-end: var(--sp-3); }
+.assess-panel ul { display: grid; gap: var(--sp-2); margin: 0; padding: 0; list-style: none; }
+.assess-panel li { display: flex; align-items: center; gap: var(--sp-3); color: var(--text-muted); }
+.assess-panel li .ico { width: 20px; height: 20px; color: var(--primary-ink); }
+
+.danger-zone { display: grid; gap: var(--sp-3); justify-items: start; padding: var(--sp-4); border: 1px dashed var(--danger-500); border-radius: var(--r-lg); background: var(--danger-50); }
+.danger-zone p { margin: 0; color: var(--text); }
+.danger-zone__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+/* ---------- صفحه درس ---------- */
+.pg--lesson { width: 100%; max-width: calc(var(--lesson-max) + var(--toc-w) + var(--sp-8)); margin-inline: auto; gap: var(--sp-5); }
+.read-progress { position: fixed; inset-block-start: 0; inset-inline: 0; z-index: calc(var(--z-appbar) + 1); height: 3px; border-radius: 0; background: transparent; }
+.read-progress > i { border-radius: 0 var(--r-pill) var(--r-pill) 0; }
+[dir="rtl"] .read-progress > i { border-radius: var(--r-pill) 0 0 var(--r-pill); }
+.lesson-head { display: grid; gap: var(--sp-3); justify-items: start; max-width: var(--lesson-max); }
+.lesson-head h1 { margin: 0; font-size: var(--fs-xl); line-height: 1.5; }
+@media (min-width: 768px) { .lesson-head h1 { font-size: var(--fs-2xl); } }
+.lesson-layout { display: grid; gap: var(--sp-8); grid-template-columns: minmax(0, 1fr); align-items: start; }
+.lesson-main { display: grid; gap: var(--sp-6); min-width: 0; max-width: var(--lesson-max); }
+.lesson-body { font-size: 1.0625rem; line-height: 2; }
+@media (min-width: 1100px) {
+  .lesson-layout.has-toc { grid-template-columns: minmax(0, var(--lesson-max)) var(--toc-w); }
+}
+.lesson-toc { display: none; }
+@media (min-width: 1100px) {
+  .lesson-toc { display: block; position: sticky; inset-block-start: calc(var(--topbar-h) + var(--sp-5)); padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--surface); }
+}
+.lesson-toc__title { display: flex; align-items: center; gap: var(--sp-2); margin: 0 0 var(--sp-3); font-size: var(--fs-sm); font-weight: var(--fw-bold); color: var(--text-muted); }
+.lesson-toc__title .ico { width: 18px; height: 18px; }
+.lesson-toc ol { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.lesson-toc__link { width: 100%; min-height: 36px; padding: var(--sp-1) var(--sp-3); border: 0; border-radius: var(--r-sm); background: transparent; color: var(--text-muted); font-size: var(--fs-sm); text-align: start; line-height: 1.6; }
+.lesson-toc__link:hover { background: var(--surface-2); color: var(--text); }
+
+.lesson-foot { display: grid; gap: var(--sp-4); padding: var(--sp-4) var(--sp-5); }
+.lesson-nav { display: grid; gap: var(--sp-3); grid-template-columns: 1fr 1fr; }
+.lesson-nav .btn { min-width: 0; white-space: normal; text-align: center; line-height: 1.4; }
+.lesson-nav__spacer { display: block; }
+.done-btn { justify-self: start; }
+.done-btn[aria-pressed="true"] { background: var(--success-50); border-color: var(--success-500); color: var(--success-500); }
+
+/* خواندن: ستون وسط‌چین وقتی فهرست «در این درس» نیست */
+.pg--lesson > nav, .lesson-head, .lesson-layout:not(.has-toc) > .lesson-main { width: 100%; max-width: var(--lesson-max); margin-inline: auto; }
+.pg--lesson > nav .crumbs { justify-content: flex-start; }
+@media (min-width: 1100px) { .pg--toc > nav, .pg--toc .lesson-head { margin-inline: 0; } }
